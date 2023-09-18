@@ -32,7 +32,7 @@ export default (): [()=>Promise<void>, React.RefObject<EditorJS | undefined>]=>{
                                     let body = new FormData()
                                     body.append('file', file, file.name)
 
-                                    let res = await fetch(`${process.env.DOMAIN_URL}/api/upload`, {
+                                    let res = await fetch(`/api/upload`, {
                                         method: 'POST',
                                         body
                                         })
