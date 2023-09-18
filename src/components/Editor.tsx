@@ -36,12 +36,12 @@ let tableOutput = ({data, style, classNames}: TableOutputProps)=>{
         <table className='text-zinc-600 text-base m-auto'>
             {data.content.map((elem, index)=>{
                 if(index===0){
-                    return <tr className={classNames?.tr}>
-                        {elem.map(col=><th className='outline outline-2 -outline-offset-1 px-3 py-2 outline-zinc-700'>{col}</th>)}
+                    return <tr key={String(index)} className={classNames?.tr}>
+                        {elem.map((col, ind)=><th key={String(index)+String(ind)} className='outline outline-2 -outline-offset-1 px-3 py-2 outline-zinc-700'>{col}</th>)}
                     </tr>
                 }
-                return <tr>
-                    {elem.map(col=><td className='outline outline-2 -outline-offset-1 px-3 py-2 outline-zinc-700'>{col}</td>)}
+                return <tr key={String(index)}>
+                    {elem.map((col, ind)=><td key={String(index)+String(ind)} className='outline outline-2 -outline-offset-1 px-3 py-2 outline-zinc-700'>{col}</td>)}
                 </tr>
             })}
         </table>
